@@ -1,0 +1,28 @@
+﻿@page
+@model RegisterConfirmationModel
+@{
+    ViewData["Title"] = "Register confirmation";
+    Layout = "_AccountLayout";
+}
+
+<h1>@ViewData["Title"]</h1>
+@{
+
+<p>
+        Please check your email to confirm your account.
+</p>
+    
+}
+
+
+<script>
+    document.addEventListener('contextmenu', function(e) {
+        e.preventDefault();
+    });
+
+    document.addEventListener('keydown', function(e) {
+        if (e.key === "F12" || (e.ctrlKey && e.shiftKey && e.key === "I") || (e.ctrlKey && e.key === "u")) {
+            e.preventDefault();
+        }
+    });
+</script>

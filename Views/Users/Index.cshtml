@@ -1,0 +1,77 @@
+@model List<Microsoft.AspNetCore.Identity.IdentityUser>
+
+@{
+    ViewData["Title"] = "Users List";
+}
+<style>
+    h2 {
+        color: #333;
+        font-weight: bold;
+    }
+
+    .table-hover tbody tr:hover {
+        background-color: #f1f1f1;
+        transition: 0.3s;
+    }
+
+    #searchInput {
+        width: 50%;
+        margin: 0 auto;
+        display: block;
+        text-align: center;
+    }
+
+    .alert {
+        font-size: 1.2rem;
+    }
+
+</style>
+<div class="container mt-5">
+    <h2 class="mb-4 text-center">Users List</h2>
+
+    <!-- Search Box -->
+    <input type="text" id="searchInput" class="form-control mb-3" placeholder="Search by email or username...">
+
+    @if (Model.Any())
+    {
+        <div class="table-responsive">
+            <table class="table table-hover table-bordered text-center">
+                <thead class="thead-dark">
+                <tr>
+                    <th>#</th>
+                    <th>Email</th>
+                    <th>Username</th>
+                </tr>
+                </thead>
+                <tbody id="usersTable">
+                @for (int i = 0; i < Model.Count; i++)
+                {
+                    <tr>
+                        <td>@(i + 1)</td>
+                        <td>@Model[i].Email</td>
+                        <td>@Model[i].UserName</td>
+                    </tr>
+                }
+                </tbody>
+            </table>
+        </div>
+    }
+    else
+    {
+        <p class="alert alert-warning text-center">No users found.</p>
+    }
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            // Live Search
+            $("#searchInput").on("keyup", function () {
+                var value = $(this).val().toLowerCase();
+                $("#usersTable tr").filter(function () {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+                });
+            });
+        });
+    </script>
+}

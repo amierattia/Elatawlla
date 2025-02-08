@@ -1,0 +1,126 @@
+@model List<NetWork.Models.UserRolesViewModel>
+
+<style>
+    .title {
+        text-align: center;
+        margin-bottom: 20px;
+        font-size: 24px;
+        font-weight: bold;
+        color: #333;
+    }
+
+    .table {
+        width: 100%;
+        margin-top: 20px;
+        border-collapse: collapse;
+    }
+
+    .table th, .table td {
+        padding: 12px 15px;
+        text-align: center;
+        border: 1px solid #ddd;
+    }
+
+    .table th {
+        background-color: #f8f9fa;
+        font-weight: bold;
+    }
+
+    .role-dropdown {
+        width: 100%;
+        padding: 5px;
+        border-radius: 5px;
+    }
+
+    .assign-btn, .remove-btn {
+        width: 100%;
+        margin-top: 5px;
+    }
+
+    .alert {
+        text-align: center;
+        width: 50%;
+        margin: 10px auto;
+        padding: 15px;
+        border-radius: 5px;
+    }
+
+    .alert-success {
+        background-color: #d4edda;
+        color: #155724;
+        border: 1px solid #c3e6cb;
+    }
+
+</style>
+<h2 class="title">Manage Users</h2>
+
+<!-- Success message -->
+<div id="successMessage" class="alert alert-success" style="display: none;">
+    Action completed successfully!
+</div>
+
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>Email</th>
+        <th>Current Roles</th>
+        <th>Assign Role</th>
+        <th>Remove Role</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var user in Model)
+    {
+        <tr>
+            <td>@user.Email</td>
+            <td>@string.Join(", ", user.Roles)</td>
+            <td>
+                <form asp-action="AssignRole" method="post" class="role-form">
+                    <input type="hidden" name="userId" value="@user.UserId" />
+                    <select name="roleName" class="form-control role-dropdown">
+                        @foreach (var role in ViewBag.Roles)
+                        {
+                            <option value="@role">@role</option>
+                        }
+                    </select>
+                    <button type="submit" class="btn btn-primary assign-btn">Assign</button>
+                </form>
+            </td>
+            <td>
+                <form asp-action="RemoveRole" method="post" class="role-form">
+                    <input type="hidden" name="userId" value="@user.UserId" />
+                    <select name="roleName" class="form-control role-dropdown">
+                        @foreach (var role in user.Roles)
+                        {
+                            <option value="@role">@role</option>
+                        }
+                    </select>
+                    <button type="submit" class="btn btn-danger remove-btn">Remove</button>
+                </form>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $(".role-form").submit(function (event) {
+                event.preventDefault(); // Prevent default form submission
+
+                var form = $(this);
+
+                // Simulate successful submission (AJAX call could go here)
+                setTimeout(function () {
+                    $("#successMessage").fadeIn().delay(2000).fadeOut();
+                }, 300);
+
+                // Optionally, submit the form normally after a short delay
+                setTimeout(function () {
+                    form.unbind('submit').submit();
+                }, 500);
+            });
+        });
+    </script>
+}

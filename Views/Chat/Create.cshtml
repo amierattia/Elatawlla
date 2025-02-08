@@ -1,0 +1,145 @@
+@model NetWork.viewmodels.ChatViewModel
+
+@{
+    Layout = "_AccountLayout";
+}
+<style>
+    .chat-form-container {
+        background-color: #f9f9f9;
+        padding: 30px;
+        border-radius: 10px;
+        border: 1px solid #ddd;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        width: 60%;
+        margin: 0 auto;
+    }
+
+    .chat-form-container h3 {
+        font-size: 24px;
+        font-weight: bold;
+        color: #333;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    .chat-form {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        width: 100%;
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        font-size: 16px;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+        border-color: #3498db;
+        outline: none;
+    }
+
+    .submit-btn {
+        padding: 12px 20px;
+        font-size: 16px;
+        background-color: #3498db;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        align-self: center;
+    }
+
+    .submit-btn:hover {
+        background-color: #2980b9;
+    }
+
+    #successMessage {
+        background-color: #28a745;
+        color: white;
+        padding: 15px;
+        border-radius: 8px;
+        text-align: center;
+        font-size: 18px;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 9999;
+        display: none;
+        opacity: 0;
+        animation: fadeIn 2s forwards;
+    }
+
+    @@keyframes fadeIn {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+
+    .form-group label {
+        font-size: 18px;
+        margin-bottom: 5px;
+        color: #333;
+    }
+
+</style>
+
+<div class="chat-form-container">
+    <h3>إضافة رسالة جديدة</h3>
+
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div id="successMessage" class="alert alert-success">
+            @TempData["SuccessMessage"]
+        </div>
+    }
+
+    <form asp-action="Create" method="post" class="chat-form">
+        <div class="form-group">
+            <label asp-for="SenderEmail">البريد الإلكتروني:</label>
+            <input asp-for="SenderEmail" type="email" id="SenderEmail" name="SenderEmail" class="form-control" required />
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Message">الرسالة:</label>
+            <textarea asp-for="Message" id="Message" name="Message" class="form-control" required></textarea>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="MessageType">نوع الرسالة:</label>
+            <select id="MessageType" asp-for="MessageType" name="MessageType" class="form-control">
+                <option value="شكوى">شكوى</option>
+                <option value="استفسار">استفسار</option>
+            </select>
+        </div>
+
+        <button type="submit" class="submit-btn">إرسال</button>
+    </form>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function() {
+            if ($('#successMessage').length) {
+                $('#successMessage').fadeIn();
+                setTimeout(function() {
+                    $('#successMessage').fadeOut();
+                }, 3000);
+            }
+        });
+    </script>
+}

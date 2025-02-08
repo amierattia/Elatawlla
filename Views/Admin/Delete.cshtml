@@ -1,0 +1,29 @@
+@model NetWork.Models.Course
+
+@{
+    ViewData["Title"] = "Delete Course";
+}
+
+<h2>Are you sure you want to delete this course?</h2>
+<hr />
+
+@if (!ViewData.ModelState.IsValid)
+{
+    <div class="alert alert-danger">
+        @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+        {
+            <p>@error.ErrorMessage</p>
+        }
+    </div>
+}
+
+<div>
+    <h4>@Model.Title</h4>
+    <p>@Model.Description</p>
+</div>
+
+<form asp-action="Delete" method="post">
+    <input type="hidden" asp-for="Id" />
+    <button type="submit" class="btn btn-danger">Delete</button>
+    <a asp-action="Dashboard" class="btn btn-secondary">Cancel</a>
+</form>

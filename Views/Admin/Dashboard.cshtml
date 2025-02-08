@@ -1,0 +1,129 @@
+@model List<NetWork.Models.Course>
+
+@{
+    ViewData["Title"] = "Admin Dashboard";
+}
+
+<!-- Main Content -->
+<div class="col-md-9 p-4">
+    <h2 class="mb-4 text-center">Admin Dashboard</h2>
+
+    <!-- Stats Section -->
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card text-white bg-primary mb-3 shadow-sm">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Total Users</h5>
+                    <p class="card-text display-4 fw-bold">@ViewBag.UserCount</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card text-white bg-success mb-3 shadow-sm">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Total Courses</h5>
+                    <p class="card-text display-4 fw-bold">@ViewBag.CourseCount</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Courses Table -->
+    <h3 class="mt-4 text-center">All Courses</h3>
+
+    @if (Model.Any())
+    {
+        <div class="table-responsive">
+            <table class="table table-hover table-bordered shadow-sm">
+                <thead class="table-dark">
+                <tr>
+                    <th>#</th>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th class="text-center">Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                @for (int i = 0; i < Model.Count; i++)
+                {
+                    <tr class="table-row">
+                        <td class="align-middle">@(i + 1)</td>
+                        <td class="align-middle">@Model[i].Title</td>
+                        <td class="align-middle">@Model[i].Description</td>
+                        <td class="text-center align-middle">
+                            <a asp-action="Update" asp-route-id="@Model[i].Id" class="btn btn-sm btn-warning">
+                                <i class="fas fa-edit"></i>
+                            </a>
+                            <a asp-action="Delete" asp-route-id="@Model[i].Id" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure?')">
+                                <i class="fas fa-trash-alt"></i>
+                            </a>
+                        </td>
+                    </tr>
+                }
+                </tbody>
+            </table>
+        </div>
+    }
+    else
+    {
+        <p class="alert alert-warning text-center">No courses found.</p>
+    }
+</div>
+
+<!-- Font Awesome CDN for Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<!-- Custom CSS for Improvements -->
+<style>
+    .card-body {
+        background-color: #007bff;
+        border-radius: 8px;
+    }
+
+    .card-title {
+        font-size: 1.2rem;
+        font-weight: bold;
+    }
+
+    .table-row:hover {
+        background-color: #f0f8ff;
+        transition: 0.3s ease;
+    }
+
+    .btn-sm {
+        font-size: 1rem;
+    }
+
+    .table-hover tbody tr:hover {
+        background-color: #f1f1f1;
+    }
+
+    .loading {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    .loading span {
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+</style>
+
+<!-- Loading Spinner -->
+<script>
+    $(document).ready(function() {
+        $(".table").hide(); // Hide the table initially
+
+        // Show loading spinner while the page is loading
+        $("body").prepend('<div class="loading"><span>Loading...</span></div>');
+
+        // Simulate loading data for 2 seconds and then show the table
+        setTimeout(function() {
+            $(".loading").remove();
+            $(".table").fadeIn();
+        }, 2000); // Change this delay as needed
+    });
+</script>

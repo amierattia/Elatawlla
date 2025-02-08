@@ -1,0 +1,445 @@
+{
+  "Files": [
+    {
+      "Id": "/home/amier/RiderProjects/NetWork/NetWork/obj/Release/net9.0/win-x86/scopedcss/projectbundle/NetWork.bundle.scp.css",
+      "PackagePath": "staticwebassets/NetWork.eam3nxkt78.bundle.scp.css"
+    },
+    {
+      "Id": "/home/amier/RiderProjects/NetWork/NetWork/wwwroot/css/accountStyle.css",
+      "PackagePath": "staticwebassets/css/accountStyle.css"
+    },
+    {
+      "Id": "/home/amier/RiderProjects/NetWork/NetWork/wwwroot/css/site.css",
+      "PackagePath": "staticwebassets/css/site.css"
+    },
+    {
+      "Id": "/home/amier/RiderProjects/NetWork/NetWork/wwwroot/css/styles.css",
+      "PackagePath": "staticwebassets/css/styles.css"
+    },
+    {
+      "Id": "/home/amier/RiderProjects/NetWork/NetWork/wwwroot/favicon.ico",
+      "PackagePath": "staticwebassets/favicon.ico"
+    },
+    {
+      "Id": "/home/amier/RiderProjects/NetWork/NetWork/wwwroot/images/paragraphs/0c808322-0471-4098-b7b7-502911ead19e_Screenshot from 2024-11-22 21-23-37.png",
+      "PackagePath": "staticwebassets/images/paragraphs/0c808322-0471-4098-b7b7-502911ead19e_Screenshot from 2024-11-22 21-23-37.png"
+    },
+    {
+      "Id": "/home/amier/RiderProjects/NetWork/NetWork/wwwroot/images/paragraphs/25a0d8d7-de20-472c-9d77-c617482d72ce_Screenshot from 2024-12-01 21-50-13.png",
+      "PackagePath": "staticwebassets/images/paragraphs/25a0d8d7-de20-472c-9d77-c617482d72ce_Screenshot from 2024-12-01 21-50-13.png"
+    },
+    {
+      "Id": "/home/amier/RiderProjects/NetWork/NetWork/wwwroot/images/paragraphs/290a57ff-482f-4250-8de7-2904aa398df5_WhatsApp Image 2025-02-02 at 9.02.00 PM.jpeg",
+      "PackagePath": "staticwebassets/images/paragraphs/290a57ff-482f-4250-8de7-2904aa398df5_WhatsApp Image 2025-02-02 at 9.02.00 PM.jpeg"
+    },
+    {
+      "Id": "/home/amier/RiderProjects/NetWork/NetWork/wwwroot/images/paragraphs/34a6d5b2-d665-44d7-9f8b-188a384c9e94_Screenshot from 2024-12-01 21-52-15.png",
+      "PackagePath": "staticwebassets/images/paragraphs/34a6d5b2-d665-44d7-9f8b-188a384c9e94_Screenshot from 2024-12-01 21-52-15.png"
+    },
+    {
+      "Id": "/home/amier/RiderProjects/NetWork/NetWork/wwwroot/images/paragraphs/399a46dc-b365-4f2f-8d69-077db0c11d6e_Screenshot from 2024-12-01 21-52-15.png",
+      "PackagePath": "staticwebassets/images/paragraphs/399a46dc-b365-4f2f-8d69-077db0c11d6e_Screenshot from 2024-12-01 21-52-15.png"
+    },
+    {
+      "Id": "/home/amier/RiderProjects/NetWork/NetWork/wwwroot/images/paragraphs/40875cca-0506-4a24-af9a-28b62b672ea7_Screenshot from 2024-11-22 21-23-37.png",
+      "PackagePath": "staticwebassets/images/paragraphs/40875cca-0506-4a24-af9a-28b62b672ea7_Screenshot from 2024-11-22 21-23-37.png"
+    },
+    {
+      "Id": "/home/amier/RiderProjects/NetWork/NetWork/wwwroot/images/paragraphs/495c5e6e-b97c-414d-b4d4-35a2bb4a9615_IMG-20250130-WA0079.jpg",
+      "PackagePath": "staticwebassets/images/paragraphs/495c5e6e-b97c-414d-b4d4-35a2bb4a9615_IMG-20250130-WA0079.jpg"
+    },
+    {
+      "Id": "/home/amier/RiderProjects/NetWork/NetWork/wwwroot/images/paragraphs/52f1d42b-398d-490b-b350-e7f2ed0a872d_Screenshot from 2024-12-11 01-00-48.png",
+      "PackagePath": "staticwebassets/images/paragraphs/52f1d42b-398d-490b-b350-e7f2ed0a872d_Screenshot from 2024-12-11 01-00-48.png"
+    },
+    {
+      "Id": "/home/amier/RiderProjects/NetWork/NetWork/wwwroot/images/paragraphs/5422dd91-dced-462d-958a-b0e43fe038ad_DALL·E 2025-01-31 10.25.53 - A modern and professional router logo design. The logo features a sleek, minimalistic router with two antennas emitting Wi-Fi signals. The design incl.webp",
+      "PackagePath": "staticwebassets/images/paragraphs/5422dd91-dced-462d-958a-b0e43fe038ad_DALL·E 2025-01-31 10.25.53 - A modern and professional router logo design. The logo features a sleek, minimalistic router with two antennas emitting Wi-Fi signals. The design incl.webp"
+    },
+    {
+      "Id": "/home/amier/RiderProjects/NetWork/NetWork/wwwroot/images/paragraphs/577d78dd-a237-4c01-91c4-bfa2284e71d0_Screenshot from 2024-12-01 21-50-13.png",
+      "PackagePath": "staticwebassets/images/paragraphs/577d78dd-a237-4c01-91c4-bfa2284e71d0_Screenshot from 2024-12-01 21-50-13.png"
+    },
+    {
+      "Id": "/home/amier/RiderProjects/NetWork/NetWork/wwwroot/images/paragraphs/580d8a5c-8b27-4265-a8eb-bfefa550504f_Screenshot from 2024-11-22 21-23-37.png",
+      "PackagePath": "staticwebassets/images/paragraphs/580d8a5c-8b27-4265-a8eb-bfefa550504f_Screenshot from 2024-11-22 21-23-37.png"
+    },
+    {
+      "Id": "/home/amier/RiderProjects/NetWork/NetWork/wwwroot/images/paragraphs/585ae8ac-04e7-4b5a-87ed-8559aeea18b0_Screenshot from 2024-12-01 21-50-13.png",
+      "PackagePath": "staticwebassets/images/paragraphs/585ae8ac-04e7-4b5a-87ed-8559aeea18b0_Screenshot from 2024-12-01 21-50-13.png"
+    },
+    {
+      "Id": "/home/amier/RiderProjects/NetWork/NetWork/wwwroot/images/paragraphs/5fc78a4f-6014-4754-9a45-aa059006f83b_Screenshot from 2024-11-22 21-23-37.png",
+      "PackagePath": "staticwebassets/images/paragraphs/5fc78a4f-6014-4754-9a45-aa059006f83b_Screenshot from 2024-11-22 21-23-37.png"
+    },
+    {
+      "Id": "/home/amier/RiderProjects/NetWork/NetWork/wwwroot/images/paragraphs/836c2387-b11d-499a-b4d5-83bd9ebaa70f_Screenshot from 2024-11-22 21-23-37.png",
+      "PackagePath": "staticwebassets/images/paragraphs/836c2387-b11d-499a-b4d5-83bd9ebaa70f_Screenshot from 2024-11-22 21-23-37.png"
+    },
+    {
+      "Id": "/home/amier/RiderProjects/NetWork/NetWork/wwwroot/images/paragraphs/9417b97b-bb53-4a9c-821d-62fb8c451c0e_Screenshot from 2025-02-03 20-54-43.png",
+      "PackagePath": "staticwebassets/images/paragraphs/9417b97b-bb53-4a9c-821d-62fb8c451c0e_Screenshot from 2025-02-03 20-54-43.png"
+    },
+    {
+      "Id": "/home/amier/RiderProjects/NetWork/NetWork/wwwroot/images/paragraphs/96c3fb59-baf9-488d-8238-5dd8c6b8a568_Screenshot from 2024-11-22 21-23-37.png",
+      "PackagePath": "staticwebassets/images/paragraphs/96c3fb59-baf9-488d-8238-5dd8c6b8a568_Screenshot from 2024-11-22 21-23-37.png"
+    },
+    {
+      "Id": "/home/amier/RiderProjects/NetWork/NetWork/wwwroot/images/paragraphs/97771b60-a09d-4a38-a044-eb813776dfda_Screenshot from 2024-12-01 21-50-56.png",
+      "PackagePath": "staticwebassets/images/paragraphs/97771b60-a09d-4a38-a044-eb813776dfda_Screenshot from 2024-12-01 21-50-56.png"
+    },
+    {
+      "Id": "/home/amier/RiderProjects/NetWork/NetWork/wwwroot/images/paragraphs/9c6f9315-e023-4701-8288-467a6c8bb891_Screencast from 2024-11-26 00-33-36.webm",
+      "PackagePath": "staticwebassets/images/paragraphs/9c6f9315-e023-4701-8288-467a6c8bb891_Screencast from 2024-11-26 00-33-36.webm"
+    },
+    {
+      "Id": "/home/amier/RiderProjects/NetWork/NetWork/wwwroot/images/paragraphs/9d6c2cf2-39de-4b6d-aab6-144195443a82_Screenshot from 2024-12-01 21-54-52.png",
+      "PackagePath": "staticwebassets/images/paragraphs/9d6c2cf2-39de-4b6d-aab6-144195443a82_Screenshot from 2024-12-01 21-54-52.png"
+    },
+    {
+      "Id": "/home/amier/RiderProjects/NetWork/NetWork/wwwroot/images/paragraphs/9f69fe2d-1c3d-49ce-9a58-9472fc550a4d_Screenshot from 2024-12-01 21-50-56.png",
+      "PackagePath": "staticwebassets/images/paragraphs/9f69fe2d-1c3d-49ce-9a58-9472fc550a4d_Screenshot from 2024-12-01 21-50-56.png"
+    },
+    {
+      "Id": "/home/amier/RiderProjects/NetWork/NetWork/wwwroot/images/paragraphs/a079544f-7412-4e25-bea7-5e3d8f4a7a60_Screencast from 2024-11-26 00-33-36.webm",
+      "PackagePath": "staticwebassets/images/paragraphs/a079544f-7412-4e25-bea7-5e3d8f4a7a60_Screencast from 2024-11-26 00-33-36.webm"
+    },
+    {
+      "Id": "/home/amier/RiderProjects/NetWork/NetWork/wwwroot/images/paragraphs/a94a6346-2b0a-4b59-86ae-fa93b1b5f630_Screenshot from 2025-02-04 17-47-50.png",
+      "PackagePath": "staticwebassets/images/paragraphs/a94a6346-2b0a-4b59-86ae-fa93b1b5f630_Screenshot from 2025-02-04 17-47-50.png"
+    },
+    {
+      "Id": "/home/amier/RiderProjects/NetWork/NetWork/wwwroot/images/paragraphs/b2b6b622-2c63-4d1a-8fb3-38a71e133294_Screenshot from 2024-11-22 21-23-37.png",
+      "PackagePath": "staticwebassets/images/paragraphs/b2b6b622-2c63-4d1a-8fb3-38a71e133294_Screenshot from 2024-11-22 21-23-37.png"
+    },
+    {
+      "Id": "/home/amier/RiderProjects/NetWork/NetWork/wwwroot/images/paragraphs/bc191233-a09e-4d1b-9160-05aab76fc661_Screenshot from 2024-11-22 21-23-37.png",
+      "PackagePath": "staticwebassets/images/paragraphs/bc191233-a09e-4d1b-9160-05aab76fc661_Screenshot from 2024-11-22 21-23-37.png"
+    },
+    {
+      "Id": "/home/amier/RiderProjects/NetWork/NetWork/wwwroot/images/paragraphs/bda7cfba-a42d-4665-ab6e-32de97037bd5_Screenshot from 2024-11-22 21-23-37.png",
+      "PackagePath": "staticwebassets/images/paragraphs/bda7cfba-a42d-4665-ab6e-32de97037bd5_Screenshot from 2024-11-22 21-23-37.png"
+    },
+    {
+      "Id": "/home/amier/RiderProjects/NetWork/NetWork/wwwroot/images/paragraphs/c7a9648e-ca6f-4282-9a09-ecddfd0c3dbb_Screenshot from 2024-11-22 21-23-37.png",
+      "PackagePath": "staticwebassets/images/paragraphs/c7a9648e-ca6f-4282-9a09-ecddfd0c3dbb_Screenshot from 2024-11-22 21-23-37.png"
+    },
+    {
+      "Id": "/home/amier/RiderProjects/NetWork/NetWork/wwwroot/images/paragraphs/d7bf91a9-0170-4507-873b-699f5d5c2b0a_Screenshot from 2024-12-01 21-50-13.png",
+      "PackagePath": "staticwebassets/images/paragraphs/d7bf91a9-0170-4507-873b-699f5d5c2b0a_Screenshot from 2024-12-01 21-50-13.png"
+    },
+    {
+      "Id": "/home/amier/RiderProjects/NetWork/NetWork/wwwroot/images/paragraphs/e8663f11-3f7a-4dc6-bc83-38d9568fe576_Screenshot from 2024-11-22 21-23-37.png",
+      "PackagePath": "staticwebassets/images/paragraphs/e8663f11-3f7a-4dc6-bc83-38d9568fe576_Screenshot from 2024-11-22 21-23-37.png"
+    },
+    {
+      "Id": "/home/amier/RiderProjects/NetWork/NetWork/wwwroot/images/paragraphs/e9aa17dd-4140-4dae-85e3-8acf21b5bedc_Screenshot from 2024-11-22 21-23-37.png",
+      "PackagePath": "staticwebassets/images/paragraphs/e9aa17dd-4140-4dae-85e3-8acf21b5bedc_Screenshot from 2024-11-22 21-23-37.png"
+    },
+    {
+      "Id": "/home/amier/RiderProjects/NetWork/NetWork/wwwroot/images/paragraphs/ec4c1d52-baa8-4ec0-a6a2-7e3f3dc88cfd_Screenshot from 2024-12-01 21-58-30.png",
+      "PackagePath": "staticwebassets/images/paragraphs/ec4c1d52-baa8-4ec0-a6a2-7e3f3dc88cfd_Screenshot from 2024-12-01 21-58-30.png"
+    },
+    {
+      "Id": "/home/amier/RiderProjects/NetWork/NetWork/wwwroot/images/paragraphs/edc69abc-692c-4949-8f88-7d299bb34253_Screenshot from 2024-11-22 21-23-37.png",
+      "PackagePath": "staticwebassets/images/paragraphs/edc69abc-692c-4949-8f88-7d299bb34253_Screenshot from 2024-11-22 21-23-37.png"
+    },
+    {
+      "Id": "/home/amier/RiderProjects/NetWork/NetWork/wwwroot/images/paragraphs/f30dc8a7-6fb5-476a-ab39-a4f50873006a_Screenshot from 2024-11-22 21-23-37.png",
+      "PackagePath": "staticwebassets/images/paragraphs/f30dc8a7-6fb5-476a-ab39-a4f50873006a_Screenshot from 2024-11-22 21-23-37.png"
+    },
+    {
+      "Id": "/home/amier/RiderProjects/NetWork/NetWork/wwwroot/images/paragraphs/f5852f9f-2033-410b-8db6-5dd6344ee66e_Screenshot from 2024-11-22 21-23-37.png",
+      "PackagePath": "staticwebassets/images/paragraphs/f5852f9f-2033-410b-8db6-5dd6344ee66e_Screenshot from 2024-11-22 21-23-37.png"
+    },
+    {
+      "Id": "/home/amier/RiderProjects/NetWork/NetWork/wwwroot/images/paragraphs/f76a39d7-8b70-4abf-ab32-cbd9a6b9d583_Screenshot from 2024-11-22 21-23-37.png",
+      "PackagePath": "staticwebassets/images/paragraphs/f76a39d7-8b70-4abf-ab32-cbd9a6b9d583_Screenshot from 2024-11-22 21-23-37.png"
+    },
+    {
+      "Id": "/home/amier/RiderProjects/NetWork/NetWork/wwwroot/images/paragraphs/f76f1c33-b494-467d-adae-41cff1385125_Screenshot from 2024-12-08 23-53-19.png",
+      "PackagePath": "staticwebassets/images/paragraphs/f76f1c33-b494-467d-adae-41cff1385125_Screenshot from 2024-12-08 23-53-19.png"
+    },
+    {
+      "Id": "/home/amier/RiderProjects/NetWork/NetWork/wwwroot/images/paragraphs/fdf2885c-0881-48d4-b1ff-a5e715999522_Screenshot from 2024-11-22 21-23-37.png",
+      "PackagePath": "staticwebassets/images/paragraphs/fdf2885c-0881-48d4-b1ff-a5e715999522_Screenshot from 2024-11-22 21-23-37.png"
+    },
+    {
+      "Id": "/home/amier/RiderProjects/NetWork/NetWork/wwwroot/js/protection.js",
+      "PackagePath": "staticwebassets/js/protection.js"
+    },
+    {
+      "Id": "/home/amier/RiderProjects/NetWork/NetWork/wwwroot/js/site.js",
+      "PackagePath": "staticwebassets/js/site.js"
+    },
+    {
+      "Id": "/home/amier/RiderProjects/NetWork/NetWork/wwwroot/lib/bootstrap/LICENSE",
+      "PackagePath": "staticwebassets/lib/bootstrap"
+    },
+    {
+      "Id": "/home/amier/RiderProjects/NetWork/NetWork/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-grid.css"
+    },
+    {
+      "Id": "/home/amier/RiderProjects/NetWork/NetWork/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-grid.css.map"
+    },
+    {
+      "Id": "/home/amier/RiderProjects/NetWork/NetWork/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.min.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-grid.min.css"
+    },
+    {
+      "Id": "/home/amier/RiderProjects/NetWork/NetWork/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.min.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-grid.min.css.map"
+    },
+    {
+      "Id": "/home/amier/RiderProjects/NetWork/NetWork/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-grid.rtl.css"
+    },
+    {
+      "Id": "/home/amier/RiderProjects/NetWork/NetWork/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-grid.rtl.css.map"
+    },
+    {
+      "Id": "/home/amier/RiderProjects/NetWork/NetWork/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css"
+    },
+    {
+      "Id": "/home/amier/RiderProjects/NetWork/NetWork/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css.map"
+    },
+    {
+      "Id": "/home/amier/RiderProjects/NetWork/NetWork/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-reboot.css"
+    },
+    {
+      "Id": "/home/amier/RiderProjects/NetWork/NetWork/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-reboot.css.map"
+    },
+    {
+      "Id": "/home/amier/RiderProjects/NetWork/NetWork/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.min.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-reboot.min.css"
+    },
+    {
+      "Id": "/home/amier/RiderProjects/NetWork/NetWork/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.min.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-reboot.min.css.map"
+    },
+    {
+      "Id": "/home/amier/RiderProjects/NetWork/NetWork/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-reboot.rtl.css"
+    },
+    {
+      "Id": "/home/amier/RiderProjects/NetWork/NetWork/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-reboot.rtl.css.map"
+    },
+    {
+      "Id": "/home/amier/RiderProjects/NetWork/NetWork/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css"
+    },
+    {
+      "Id": "/home/amier/RiderProjects/NetWork/NetWork/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css.map"
+    },
+    {
+      "Id": "/home/amier/RiderProjects/NetWork/NetWork/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-utilities.css"
+    },
+    {
+      "Id": "/home/amier/RiderProjects/NetWork/NetWork/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-utilities.css.map"
+    },
+    {
+      "Id": "/home/amier/RiderProjects/NetWork/NetWork/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.min.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-utilities.min.css"
+    },
+    {
+      "Id": "/home/amier/RiderProjects/NetWork/NetWork/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.min.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-utilities.min.css.map"
+    },
+    {
+      "Id": "/home/amier/RiderProjects/NetWork/NetWork/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-utilities.rtl.css"
+    },
+    {
+      "Id": "/home/amier/RiderProjects/NetWork/NetWork/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-utilities.rtl.css.map"
+    },
+    {
+      "Id": "/home/amier/RiderProjects/NetWork/NetWork/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css"
+    },
+    {
+      "Id": "/home/amier/RiderProjects/NetWork/NetWork/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css.map"
+    },
+    {
+      "Id": "/home/amier/RiderProjects/NetWork/NetWork/wwwroot/lib/bootstrap/dist/css/bootstrap.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap.css"
+    },
+    {
+      "Id": "/home/amier/RiderProjects/NetWork/NetWork/wwwroot/lib/bootstrap/dist/css/bootstrap.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap.css.map"
+    },
+    {
+      "Id": "/home/amier/RiderProjects/NetWork/NetWork/wwwroot/lib/bootstrap/dist/css/bootstrap.min.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap.min.css"
+    },
+    {
+      "Id": "/home/amier/RiderProjects/NetWork/NetWork/wwwroot/lib/bootstrap/dist/css/bootstrap.min.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap.min.css.map"
+    },
+    {
+      "Id": "/home/amier/RiderProjects/NetWork/NetWork/wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap.rtl.css"
+    },
+    {
+      "Id": "/home/amier/RiderProjects/NetWork/NetWork/wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap.rtl.css.map"
+    },
+    {
+      "Id": "/home/amier/RiderProjects/NetWork/NetWork/wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.min.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap.rtl.min.css"
+    },
+    {
+      "Id": "/home/amier/RiderProjects/NetWork/NetWork/wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.min.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap.rtl.min.css.map"
+    },
+    {
+      "Id": "/home/amier/RiderProjects/NetWork/NetWork/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.js",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.bundle.js"
+    },
+    {
+      "Id": "/home/amier/RiderProjects/NetWork/NetWork/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.js.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.bundle.js.map"
+    },
+    {
+      "Id": "/home/amier/RiderProjects/NetWork/NetWork/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "/home/amier/RiderProjects/NetWork/NetWork/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.min.js.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.bundle.min.js.map"
+    },
+    {
+      "Id": "/home/amier/RiderProjects/NetWork/NetWork/wwwroot/lib/bootstrap/dist/js/bootstrap.esm.js",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.esm.js"
+    },
+    {
+      "Id": "/home/amier/RiderProjects/NetWork/NetWork/wwwroot/lib/bootstrap/dist/js/bootstrap.esm.js.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.esm.js.map"
+    },
+    {
+      "Id": "/home/amier/RiderProjects/NetWork/NetWork/wwwroot/lib/bootstrap/dist/js/bootstrap.esm.min.js",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.esm.min.js"
+    },
+    {
+      "Id": "/home/amier/RiderProjects/NetWork/NetWork/wwwroot/lib/bootstrap/dist/js/bootstrap.esm.min.js.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.esm.min.js.map"
+    },
+    {
+      "Id": "/home/amier/RiderProjects/NetWork/NetWork/wwwroot/lib/bootstrap/dist/js/bootstrap.js",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.js"
+    },
+    {
+      "Id": "/home/amier/RiderProjects/NetWork/NetWork/wwwroot/lib/bootstrap/dist/js/bootstrap.js.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.js.map"
+    },
+    {
+      "Id": "/home/amier/RiderProjects/NetWork/NetWork/wwwroot/lib/bootstrap/dist/js/bootstrap.min.js",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.min.js"
+    },
+    {
+      "Id": "/home/amier/RiderProjects/NetWork/NetWork/wwwroot/lib/bootstrap/dist/js/bootstrap.min.js.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.min.js.map"
+    },
+    {
+      "Id": "/home/amier/RiderProjects/NetWork/NetWork/wwwroot/lib/jquery-validation-unobtrusive/LICENSE.txt",
+      "PackagePath": "staticwebassets/lib/jquery-validation-unobtrusive/LICENSE.txt"
+    },
+    {
+      "Id": "/home/amier/RiderProjects/NetWork/NetWork/wwwroot/lib/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.js"
+    },
+    {
+      "Id": "/home/amier/RiderProjects/NetWork/NetWork/wwwroot/lib/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js"
+    },
+    {
+      "Id": "/home/amier/RiderProjects/NetWork/NetWork/wwwroot/lib/jquery-validation/LICENSE.md",
+      "PackagePath": "staticwebassets/lib/jquery-validation/LICENSE.md"
+    },
+    {
+      "Id": "/home/amier/RiderProjects/NetWork/NetWork/wwwroot/lib/jquery-validation/dist/additional-methods.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/dist/additional-methods.js"
+    },
+    {
+      "Id": "/home/amier/RiderProjects/NetWork/NetWork/wwwroot/lib/jquery-validation/dist/additional-methods.min.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/dist/additional-methods.min.js"
+    },
+    {
+      "Id": "/home/amier/RiderProjects/NetWork/NetWork/wwwroot/lib/jquery-validation/dist/jquery.validate.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/dist/jquery.validate.js"
+    },
+    {
+      "Id": "/home/amier/RiderProjects/NetWork/NetWork/wwwroot/lib/jquery-validation/dist/jquery.validate.min.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/dist/jquery.validate.min.js"
+    },
+    {
+      "Id": "/home/amier/RiderProjects/NetWork/NetWork/wwwroot/lib/jquery/LICENSE.txt",
+      "PackagePath": "staticwebassets/lib/jquery/LICENSE.txt"
+    },
+    {
+      "Id": "/home/amier/RiderProjects/NetWork/NetWork/wwwroot/lib/jquery/dist/jquery.js",
+      "PackagePath": "staticwebassets/lib/jquery/dist/jquery.js"
+    },
+    {
+      "Id": "/home/amier/RiderProjects/NetWork/NetWork/wwwroot/lib/jquery/dist/jquery.min.js",
+      "PackagePath": "staticwebassets/lib/jquery/dist/jquery.min.js"
+    },
+    {
+      "Id": "/home/amier/RiderProjects/NetWork/NetWork/wwwroot/lib/jquery/dist/jquery.min.map",
+      "PackagePath": "staticwebassets/lib/jquery/dist/jquery.min.map"
+    },
+    {
+      "Id": "/home/amier/RiderProjects/NetWork/NetWork/wwwroot/lib/jquery/dist/jquery.slim.js",
+      "PackagePath": "staticwebassets/lib/jquery/dist/jquery.slim.js"
+    },
+    {
+      "Id": "/home/amier/RiderProjects/NetWork/NetWork/wwwroot/lib/jquery/dist/jquery.slim.min.js",
+      "PackagePath": "staticwebassets/lib/jquery/dist/jquery.slim.min.js"
+    },
+    {
+      "Id": "/home/amier/RiderProjects/NetWork/NetWork/wwwroot/lib/jquery/dist/jquery.slim.min.map",
+      "PackagePath": "staticwebassets/lib/jquery/dist/jquery.slim.min.map"
+    },
+    {
+      "Id": "/home/amier/RiderProjects/NetWork/NetWork/wwwroot/videos/paragraphs/8fa644e1-a384-42af-a069-e4bc66fc3855_Screencast from 2024-11-26 00-33-36.webm",
+      "PackagePath": "staticwebassets/videos/paragraphs/8fa644e1-a384-42af-a069-e4bc66fc3855_Screencast from 2024-11-26 00-33-36.webm"
+    },
+    {
+      "Id": "/home/amier/RiderProjects/NetWork/NetWork/wwwroot/videos/paragraphs/a657ae87-2387-40ca-a6c0-64f2cb8a4031_Screencast from 2024-11-26 00-33-36.webm",
+      "PackagePath": "staticwebassets/videos/paragraphs/a657ae87-2387-40ca-a6c0-64f2cb8a4031_Screencast from 2024-11-26 00-33-36.webm"
+    },
+    {
+      "Id": "obj/Release/net9.0/win-x86/staticwebassets/msbuild.NetWork.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
+    },
+    {
+      "Id": "obj/Release/net9.0/win-x86/staticwebassets/msbuild.NetWork.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj/Release/net9.0/win-x86/staticwebassets/msbuild.build.NetWork.props",
+      "PackagePath": "build\\NetWork.props"
+    },
+    {
+      "Id": "obj/Release/net9.0/win-x86/staticwebassets/msbuild.buildMultiTargeting.NetWork.props",
+      "PackagePath": "buildMultiTargeting\\NetWork.props"
+    },
+    {
+      "Id": "obj/Release/net9.0/win-x86/staticwebassets/msbuild.buildTransitive.NetWork.props",
+      "PackagePath": "buildTransitive\\NetWork.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

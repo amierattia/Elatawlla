@@ -1,0 +1,125 @@
+@model NetWork.Models.Lesson
+
+@{
+    ViewData["Title"] = "Add New Lesson";
+}
+
+<div class="container mt-5">
+    <h2 class="mb-4">Add New Lesson</h2>
+    <div class="row">
+        <div class="col-md-8">
+            <form asp-action="Add" method="post" enctype="multipart/form-data">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <div class="form-group">
+                    <label asp-for="Title" class="control-label">Lesson Title</label>
+                    <input asp-for="Title" class="form-control" placeholder="Enter lesson title" />
+                    <span asp-validation-for="Title" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="CourseId" class="control-label">Course</label>
+                    <select asp-for="CourseId" class="form-control" asp-items="ViewBag.Courses">
+                        <option value="">Select Course</option>
+                    </select>
+                    <span asp-validation-for="CourseId" class="text-danger"></span>
+                </div>
+
+                <hr>
+
+                <h4>Lesson Paragraphs</h4>
+                <div id="paragraphs-container"></div>
+                <button type="button" class="btn btn-info mb-3" onclick="addParagraphField()">+ Add Paragraph</button>
+
+                <hr>
+
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Add Lesson</button>
+                    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    function addParagraphField() {
+        var container = document.getElementById("paragraphs-container");
+
+        var div = document.createElement("div");
+        div.classList.add("paragraph-group", "mb-3");
+
+        var paragraphId = `paragraph-${Date.now()}`; 
+
+        div.innerHTML = `
+            <div class="form-group">
+                <label>Paragraph Title</label>
+                <input type="text" name="paragraphTitles" class="form-control" placeholder="Enter paragraph title">
+            </div>
+            <div class="form-group">
+                <label>Paragraph Content</label>
+                <textarea name="paragraphContents" class="form-control" rows="3" placeholder="Enter paragraph content"></textarea>
+            </div>
+            <div class="form-group">
+                <label>Upload Image (Optional)</label>
+                <input type="file" name="paragraphImages" accept="image/*" class="form-control">
+            </div>
+            <hr>
+            <label for="paragraphVideos">Upload Videos</label>
+            <input type="file" class="form-control" accept="video/*" name="paragraphVideos" multiple>
+            
+            <div class="form-group">
+                <label for="externalLink">رابط خارجي (اختياري)</label>
+                <input type="url" name="externalLinks" class="form-control" placeholder="أدخل رابط خارجي مثل يوتيوب أو مقالة">
+            </div>
+
+            <label>Upload Audio:</label>
+            <input type="file" name="paragraphAudios" accept="audio/*">
+
+            <!-- تسجيل الصوت -->
+            <div>
+                <button type="button" id="startRecord-${paragraphId}" class="btn btn-sm btn-danger">🎤 Start Recording</button>
+                <button type="button" id="stopRecord-${paragraphId}" class="btn btn-sm btn-secondary" disabled>⏹ Stop</button>
+                <audio id="audioPlayback-${paragraphId}" controls></audio>
+                <input type="hidden" name="recordedAudio" id="recordedAudio-${paragraphId}">
+            </div>
+        `;
+
+        container.appendChild(div);
+
+        setupAudioRecording(paragraphId);
+    }
+
+    function setupAudioRecording(paragraphId) {
+        let mediaRecorder;
+        let audioChunks = [];
+
+        document.getElementById(`startRecord-${paragraphId}`).addEventListener('click', async () => {
+            let stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+            mediaRecorder = new MediaRecorder(stream);
+            mediaRecorder.start();
+
+            mediaRecorder.ondataavailable = event => audioChunks.push(event.data);
+            mediaRecorder.onstop = async () => {
+                let audioBlob = new Blob(audioChunks, { type: 'audio/wav' });
+                let audioUrl = URL.createObjectURL(audioBlob);
+                document.getElementById(`audioPlayback-${paragraphId}`).src = audioUrl;
+
+                let reader = new FileReader();
+                reader.readAsDataURL(audioBlob);
+                reader.onloadend = () => {
+                    document.getElementById(`recordedAudio-${paragraphId}`).value = reader.result;
+                };
+            };
+
+            document.getElementById(`stopRecord-${paragraphId}`).disabled = false;
+            document.getElementById(`startRecord-${paragraphId}`).disabled = true;
+        });
+
+        document.getElementById(`stopRecord-${paragraphId}`).addEventListener('click', () => {
+            mediaRecorder.stop();
+            document.getElementById(`startRecord-${paragraphId}`).disabled = false;
+            document.getElementById(`stopRecord-${paragraphId}`).disabled = true;
+        });
+    }
+</script>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>@ViewData["Title"] - منصة الدورات</title>
+    <script type="importmap"></script>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="~/identity.styles.css" asp-append-version="true"/>
+    <link rel="stylesheet" href="~/css/styles.css" asp-append-version="true"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+</head>
+<body>
+<header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom box-shadow mb-3">
+        <div class="container-fluid">
+            <a class="navbar-brand animate__animated animate__fadeIn" asp-area="" asp-controller="Home" asp-action="Index">حارة العتاولة</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link text-dark animate__animated animate__fadeInUp" asp-area="" asp-controller="Home" asp-action="Index">الرئيسية</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark animate__animated animate__fadeInUp" asp-area="" asp-controller="Home" asp-action="About">نبذه عن العتاولة</a>
+                    </li>
+
+
+
+                    <li class="nav-item">
+                        <a class="nav-link text-dark animate__animated animate__fadeInUp" asp-area="" asp-controller="Chat" asp-action="Create">الابلاغ عن مشكله </a>
+                    </li>
+                    
+                    @if (User.IsInRole("Admin") || User.IsInRole("Instructor") || User.IsInRole("Suber_Instructor"))
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link text-dark animate__animated animate__fadeInUp" asp-area="" asp-controller="Admin" asp-action="Dashboard">لوحة التحكم</a>
+                        </li>
+                    }
+                  
+                </ul>
+                <partial name="_LoginPartial"/>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<main role="main" class="pb-3">
+    @RenderBody()
+</main>
+
+<footer class="bg-dark text-white">
+    <div class="container py-3">
+        &copy; 2025 العتاولة - <a href="@Url.Action("Privacy", "Home")" class="text-white">الخصوصية</a>
+    </div>
+</footer>
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="~/js/site.js" asp-append-version="true"></script>
+<script>
+    document.querySelectorAll('.btn-hover-effect').forEach((button) => {
+        button.addEventListener('click', () => {
+            button.classList.add('animate__animated', 'animate__pulse');
+            setTimeout(() => {
+                button.classList.remove('animate__pulse');
+            }, 1000);
+        });
+    });
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const elements = document.querySelectorAll('.animate__animated');
+        elements.forEach((element, index) => {
+            element.style.animationDelay = `${index * 0.2}s`;
+        });
+    });
+</script>
+
+@await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

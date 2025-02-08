@@ -1,0 +1,90 @@
+@model List<NetWork.Models.Chat>
+
+@{
+    if (User.IsInRole("Admin") || User.IsInRole("Instructor") || User.IsInRole("Suber_Instructor"))
+    {
+        Layout = "_Layout";
+    }
+    else if (User.IsInRole("User"))
+    {
+        Layout = "_AccountLayout";
+    }
+    else
+    {
+        Console.WriteLine("not found");
+    }
+}
+
+<style>
+   
+    h2 {
+        text-align: center;
+        color: #333;
+        margin-bottom: 20px;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        background: white;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+        overflow: hidden;
+    }
+    th, td {
+        padding: 15px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+    th {
+        background-color: #3498db;
+        color: white;
+    }
+    tr:hover {
+        background-color: #f1f1f1;
+    }
+    .chat-details-btn {
+        display: inline-block;
+        font-size: 14px;
+        color: #fff;
+        text-decoration: none;
+        padding: 8px 12px;
+        border-radius: 5px;
+        background-color: #3498db;
+        transition: background-color 0.3s ease;
+        border: none;
+    }
+    .chat-details-btn:hover {
+        background-color: #2980b9;
+    }
+</style>
+
+<h2>جميع الرسائل</h2>
+
+<table>
+    <thead>
+    <tr>
+        <th>البريد</th>
+        <th>الرسالة</th>
+        <th>التاريخ</th>
+        <th>الحالة</th>
+        <th>الإجراءات</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var chat in Model)
+    {
+        <tr>
+            <td>@chat.SenderEmail</td>
+            <td>@chat.Message</td>
+            <td>@chat.SentDate.ToShortDateString()</td>
+            <td>@chat.Status</td>
+            @if (User.IsInRole("Admin") || User.IsInRole("Instructor") || User.IsInRole("Suber_Instructor"))
+            {
+                <td>
+                    <a class="chat-details-btn" href="@Url.Action("Details", "Chat", new { id = chat.Id })">عرض</a>
+                </td>
+            }
+        </tr>
+    }
+    </tbody>
+</table>

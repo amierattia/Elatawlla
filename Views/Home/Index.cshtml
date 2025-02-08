@@ -1,0 +1,29 @@
+﻿@model List<Course>
+@{
+    ViewData["Title"] = "الصفحة الرئيسية";
+    Layout = "_AccountLayout";
+}
+
+<div class="container mt-5 text-center">
+    <h1 class="mb-3 text-primary animate__animated animate__fadeInUp">اهلا بيك ف حارة العتاولة</h1>
+    <p class="mb-5 animate__animated animate__fadeInUp">هتلاقي بقا هنا نخبة من العتاولة زي  مندوح افندي والرداد والسيد البدوي وغيرهم !</p>
+    <a href="#courses" class="btn btn-primary btn-lg animate__animated animate__bounceInUp">استعرض المنهج</a>
+</div>
+
+<div id="courses" class="container mt-5">
+    <h2 class="text-center mb-4 animate__animated animate__fadeInUp">المنهج</h2>
+    <div class="row">
+        @foreach (var course in Model)
+        {
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 shadow-lg rounded-3 animate__animated animate__zoomInUp" style="animation-delay: @((Model.IndexOf(course) * 0.2).ToString("0.1"))s;">
+                    <div class="card-body">
+                        <h5 class="card-title text-primary">@course.Title</h5>
+                        <p class="card-text">@course.Description</p>
+                        <a asp-action="Index" asp-controller="Lesson" asp-route-courseId="@course.Id" class="btn btn-primary btn-hover-effect">عرض الدورة</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
