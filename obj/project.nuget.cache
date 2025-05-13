@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "P67Qj5X6vLE=",
+  "dgSpecHash": "Sypoe9aGtcM=",
   "success": true,
-  "projectFilePath": "/home/amier/RiderProjects/NetWork/NetWork/NetWork.csproj",
+  "projectFilePath": "/home/amier/RiderProjects/Elatawlla/NetWork.csproj",
   "expectedPackageFiles": [
     "/home/amier/.nuget/packages/automapper/12.0.1/automapper.12.0.1.nupkg.sha512",
     "/home/amier/.nuget/packages/automapper.extensions.microsoft.dependencyinjection/12.0.1/automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",

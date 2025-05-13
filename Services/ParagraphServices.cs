@@ -85,9 +85,7 @@ public class ParagraphServices
     public async Task<List<Lesson>> GetLessonsByCourseIdAsync(int courseId)
     {
         return await _context.Lessons
-            .Where(l => l.CourseId == courseId)
-            .Include(l => l.Course)
-            .Include(l => l.Paragraphs)
+           
             .ToListAsync();
 
     }

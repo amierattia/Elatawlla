@@ -1,18 +1,24 @@
 @model Lesson
-
 @{
-    ViewData["Title"] = "Delete Lesson";
+    ViewData["Title"] = "حذف الدرس";
+    Layout = "_Layout";
 }
 
-<h2>Delete Lesson</h2>
-
-<h3>Are you sure you want to delete this lesson?</h3>
-<div>
-    <h4>@Model.Title</h4>
-
-    <form asp-action="DeleteConfirmed" method="post">
-        <input type="hidden" name="id" value="@Model.Id" />
-        <button type="submit" class="btn btn-danger">Delete</button>
-        <a asp-action="Index" class="btn btn-secondary">Cancel</a>
-    </form>
+<div class="container mx-auto px-4 py-8 animate-fade-in" dir="rtl">
+    <h1 class="text-3xl font-bold text-gray-800 mb-6">حذف الدرس</h1>
+    <div class="bg-white rounded-lg shadow-md p-6">
+        <h3 class="text-xl font-semibold text-gray-800 mb-4">هل أنت متأكد من رغبتك في حذف هذا الدرس؟</h3>
+        <div class="mb-6">
+            <h4 class="text-lg text-gray-700">@Model.Title</h4>
+        </div>
+        <form asp-action="DeleteConfirmed" method="post">
+            <input type="hidden" name="id" value="@Model.Id" />
+            <button type="submit" class="btn-hover-effect bg-red-600 text-white font-semibold py-2 px-6 rounded-md hover:bg-red-700 transition duration-200 mr-4">
+                حذف
+            </button>
+            <a asp-action="Index" class="bg-gray-500 text-white font-semibold py-2 px-6 rounded-md hover:bg-gray-600 transition duration-200">
+                إلغاء
+            </a>
+        </form>
+    </div>
 </div>

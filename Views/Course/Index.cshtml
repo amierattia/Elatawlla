@@ -1,7 +1,6 @@
 @model List<NetWork.Models.Course>
-
 @{
-    ViewData["Title"] = "Courses";
+    ViewData["Title"] = "الدورات";
     if (User.IsInRole("Admin") || User.IsInRole("Instructor") || User.IsInRole("Suber_Instructor"))
     {
         Layout = "_Layout";
@@ -12,87 +11,80 @@
     }
 }
 
-<div class="container mt-5">
-    <h2 class="mb-4">Courses List</h2>
-    <div class="row mb-3">
-        <div class="col-md-6">
-            <a asp-action="Add" class="btn btn-primary mb-3">
-                <i class="fas fa-plus-circle"></i> Add New Course
+<div class="container mx-auto px-4 py-8 animate-fade-in" dir="rtl">
+    <h1 class="text-3xl font-bold text-gray-800 mb-6">قائمة الدورات</h1>
+    <div class="bg-white rounded-lg shadow-md p-6">
+        <div class="flex flex-col sm:flex-row sm:justify-between mb-4 gap-4">
+            <a asp-action="Add" asp-controller="Course" class="btn-hover-effect inline-block bg-indigo-600 text-white font-semibold py-2 px-6 rounded-md hover:bg-indigo-700 transition duration-200">
+                <i class="fas fa-plus-circle"></i> إضافة دورة جديدة
             </a>
+            <input type="text" id="searchInput" class="w-full sm:w-1/2 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="البحث في الدورات..." onkeyup="searchCourses()">
         </div>
-        <div class="col-md-6">
-            <input type="text" id="searchInput" class="form-control" placeholder="Search courses..." onkeyup="searchCourses()">
-        </div>
-    </div>
 
-    <div class="row">
-        <div class="col-md-12">
-            <div class="table-responsive">
-                <table id="coursesTable" class="table table-striped table-bordered" style="width:100%">
-                    <thead class="thead-dark">
+        <div class="overflow-x-auto">
+            <table id="coursesTable" class="w-full border-collapse">
+                <thead class="bg-gray-100">
                     <tr>
-                        <th class="text-center">ID</th>
-                        <th class="text-center">Title</th>
-                        <th class="text-center">Description</th>
-                        <th class="text-center">Actions</th>
+                        <th class="text-right px-4 py-2 text-gray-700 font-semibold text-center">معرف</th>
+                        <th class="text-right px-4 py-2 text-gray-700 font-semibold">العنوان</th>
+                        <th class="text-right px-4 py-2 text-gray-700 font-semibold">الوصف</th>
+                        <th class="text-right px-4 py-2 text-gray-700 font-semibold text-center">الإجراءات</th>
                     </tr>
-                    </thead>
-                    <tbody>
+                </thead>
+                <tbody>
                     @foreach (var course in Model)
                     {
-                        <tr>
-                            <td class="text-center">@course.Id</td>
-                            <td>@course.Title</td>
-                            <td>@course.Description</td>
-                            <td class="text-center">
-                                <a asp-action="Edit" asp-route-id="@course.Id" class="btn btn-warning btn-sm">
+                        <tr class="border-b border-gray-200 hover:bg-gray-50">
+                            <td class="px-4 py-2 text-gray-700 text-center">@course.Id</td>
+                            <td class="px-4 py-2 text-gray-700">@course.Title</td>
+                            <td class="px-4 py-2 text-gray-700">@course.Description</td>
+                            <td class="px-4 py-2 text-center">
+                                <a asp-action="Edit" asp-controller="Course" asp-route-id="@course.Id" class="btn-hover-effect inline-block bg-yellow-500 text-white font-semibold py-1 px-3 rounded-md hover:bg-yellow-600 transition duration-200 mr-2">
                                     <i class="fas fa-edit"></i>
                                 </a>
-                                <a asp-action="Delete" asp-route-id="@course.Id" class="btn btn-danger btn-sm">
+                                <a asp-action="Delete" asp-controller="Course" asp-route-id="@course.Id" class="btn-hover-effect inline-block bg-red-600 text-white font-semibold py-1 px-3 rounded-md hover:bg-red-700 transition duration-200 mr-2">
                                     <i class="fas fa-trash-alt"></i>
                                 </a>
-                                <a asp-action="Index" asp-controller="Lesson" asp-route-courseId="@course.Id" class="btn btn-info btn-sm">
+                                <a asp-action="Index" asp-controller="Lesson" asp-route-courseId="@course.Id" class="btn-hover-effect inline-block bg-blue-500 text-white font-semibold py-1 px-3 rounded-md hover:bg-blue-600 transition duration-200">
                                     <i class="fas fa-eye"></i>
                                 </a>
                             </td>
                         </tr>
                     }
-                    </tbody>
-                </table>
-            </div>
+                </tbody>
+            </table>
+        </div>
 
-            <div class="d-flex justify-content-between mt-3">
-                <span>Showing 10 of 50 entries</span>
-                <select class="form-control w-auto" id="rowsPerPage" onchange="updateRowsPerPage()">
-                    <option value="5">5</option>
-                    <option value="10" selected>10</option>
-                    <option value="15">15</option>
-                    <option value="20">20</option>
-                </select>
-            </div>
+        <div class="flex flex-col sm:flex-row justify-between items-center mt-4 gap-4">
+            <span class="text-gray-600">عرض 10 من @Model.Count دورة</span>
+            <select id="rowsPerPage" class="px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500" onchange="updateRowsPerPage()">
+                <option value="5">5</option>
+                <option value="10" selected>10</option>
+                <option value="15">15</option>
+                <option value="20">20</option>
+            </select>
         </div>
     </div>
 </div>
 
 @section Scripts {
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-
+    <partial name="_ValidationScriptsPartial" />
     <script>
         function searchCourses() {
-            var input, filter, table, tr, td, i, txtValue;
-            input = document.getElementById("searchInput");
-            filter = input.value.toUpperCase();
-            table = document.getElementById("coursesTable");
-            tr = table.getElementsByTagName("tr");
+            const input = document.getElementById("searchInput");
+            const filter = input.value.toUpperCase();
+            const table = document.getElementById("coursesTable");
+            const tr = table.getElementsByTagName("tr");
 
-            for (i = 0; i < tr.length; i++) {
-                td = tr[i].getElementsByTagName("td");
-                if (td) {
-                    var idValue = td[0].textContent || td[0].innerText;
-                    var titleValue = td[1].textContent || td[1].innerText;
-                    var descriptionValue = td[2].textContent || td[2].innerText;
+            for (let i = 1; i < tr.length; i++) { // Start at 1 to skip header
+                const td = tr[i].getElementsByTagName("td");
+                if (td.length) {
+                    const idValue = td[0].textContent || td[0].innerText;
+                    const titleValue = td[1].textContent || td[1].innerText;
+                    const descriptionValue = td[2].textContent || td[2].innerText;
 
-                    if (idValue.toUpperCase().indexOf(filter) > -1 || titleValue.toUpperCase().indexOf(filter) > -1 || descriptionValue.toUpperCase().indexOf(filter) > -1) {
+                    if (idValue.toUpperCase().includes(filter) || titleValue.toUpperCase().includes(filter) || descriptionValue.toUpperCase().includes(filter)) {
                         tr[i].style.display = "";
                     } else {
                         tr[i].style.display = "none";
@@ -102,8 +94,9 @@
         }
 
         function updateRowsPerPage() {
-            var rowsPerPage = document.getElementById("rowsPerPage").value;
-            console.log("Selected rows per page: " + rowsPerPage);
+            const rowsPerPage = document.getElementById("rowsPerPage").value;
+            console.log(`Selected rows per page: ${rowsPerPage}`);
+            // TODO: Implement server-side pagination or client-side slicing
         }
     </script>
 }

@@ -1,0 +1,27 @@
+@model NetWork.Models.Lesson
+@{
+    ViewData["Title"] = Model.Title;
+    if (User.IsInRole("Admin") || User.IsInRole("Instructor") || User.IsInRole("Suber_Instructor"))
+    {
+        Layout = "_Layout";
+    }
+    else
+    {
+        Layout = "_AccountLayout";
+    }
+}
+
+<div class="container mx-auto px-4 py-8 animate-fade-in" dir="rtl">
+    <h1 class="text-3xl font-bold text-gray-800 mb-6">@Model.Title</h1>
+    <div class="bg-white rounded-lg shadow-md p-6 border border-gray-200">
+        <div class="prose max-w-none text-gray-700">
+            @Html.Raw(Model.Content)
+        </div>
+    </div>
+    <div class="mt-6">
+        <a asp-controller="Lesson" asp-action="Index" asp-route-courseId="@Model.CourseId"
+           class="btn-hover-effect inline-block bg-gray-500 text-white font-semibold py-2 px-6 rounded-md hover:bg-gray-600 transition duration-200">
+            العودة إلى الدروس
+        </a>
+    </div>
+</div>

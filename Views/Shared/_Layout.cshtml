@@ -1,247 +1,114 @@
 ﻿
 
-@if (User.IsInRole("Admin") || User.IsInRole("Instructor") || User.IsInRole("Suber_Instructor"))
-{
 
-
-
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>@ViewData["Title"] - Admin Panel</title>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
-
-        <style>
-            /* General Styles */
-            body {
-                font-family: 'Poppins', sans-serif;
-                background-color: #F8F9FA; /* Light gray background */
-                display: flex;
-                height: 100vh;
-                margin: 0;
-            }
-
-            /* Sidebar */
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"] - Courses App</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <style>
+        /* Custom Animation */
+        @@keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in {
+            animation: fadeIn 1s ease-out;
+        }
+        /* Sidebar Transition for Mobile */
+        @@media (max-width: 768px) {
             .sidebar {
-                width: 250px;
-                background: #2C3E50; /* Dark blue background */
-                color: #FFFFFF; /* White text */
-                padding: 20px;
-                height: 100vh;
-                position: fixed;
-                box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
-                transition: transform 0.3s ease;
+                transform: translateX(-100%);
             }
-
-            .sidebar a {
-                color: #FFFFFF; /* White text */
-                text-decoration: none;
-                padding: 10px 15px;
-                display: block;
-                transition: all 0.3s ease;
-                border-radius: 5px;
-                margin: 5px 0;
+            .sidebar.active {
+                transform: translateX(0);
             }
-
-            .sidebar a:hover {
-                background: #34495E; /* Slightly lighter blue on hover */
-                transform: translateX(5px);
-            }
-
-            .sidebar .user-info {
-                text-align: center;
-                margin-bottom: 20px;
-            }
-
-            .sidebar .user-info img {
-                width: 80px;
-                height: 80px;
-                border-radius: 50%;
-                border: 3px solid #34495E; /* Dark blue border */
-                margin-bottom: 10px;
-            }
-
-            .sidebar .user-info h4 {
-                font-size: 18px;
-                margin: 0;
-                color: #FFFFFF; /* White text */
-            }
-
-            .sidebar hr {
-                border-color: #34495E; /* Dark blue separator */
-            }
-
-            .sidebar .logout-btn {
-                background: #E74C3C; /* Red logout button */
-                color: white;
-                border: none;
-                width: 100%;
-                padding: 10px;
-                border-radius: 5px;
-                cursor: pointer;
-                transition: background 0.3s ease;
-            }
-
-            .sidebar .logout-btn:hover {
-                background: #C0392B; /* Darker red on hover */
-            }
-
-            /* Main Content */
-            .main-content {
-                margin-left: 250px;
-                flex-grow: 1;
-                padding: 20px;
-                background-color: #FFFFFF; /* White background for main content */
-                overflow-y: auto;
-                transition: margin-left 0.3s ease;
-            }
-
-            .navbar {
-                background: #FFFFFF;
-                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-                padding: 10px 20px;
-                border-radius: 8px;
-            }
-
-            .navbar-brand {
-                font-size: 24px;
-                font-weight: 600;
-                color: #2C3E50; /* Dark blue for navbar */
-            }
-
-            .menu-toggle {
-                display: none;
-                font-size: 24px;
-                cursor: pointer;
-                color: #2C3E50; /* Dark blue for menu toggle */
-            }
-
-            .container {
-                margin-top: 20px;
-            }
-
-            /* Responsive Design */
-            @@media (max-width: 768px) {
-                .sidebar {
-                    transform: translateX(-100%);
-                    position: fixed;
-                    z-index: 1050;
-                    top: 0;
-                    left: 0;
-                    width: 250px;
-                    height: 100%;
-                    background: #2C3E50; /* Dark blue background */
-                    transition: transform 0.3s ease;
-                }
-
-                .sidebar.active {
-                    transform: translateX(0);
-                }
-
-                .main-content {
-                    margin-left: 0;
-                }
-
-                .menu-toggle {
-                    display: block;
-                }
-            }
-        </style>
-    </head>
-    <body>
-
+        }
+    </style>
+</head>
+<body class="font-poppins bg-gray-100 flex min-h-screen">
     <!-- Sidebar -->
-    <div class="sidebar" id="sidebar">
-        <div class="user-info">
-            <h4>@User.Identity.Name</h4>
+    <div class="sidebar fixed top-0 left-0 h-full w-64 bg-indigo-800 text-white p-5 shadow-lg transition-transform duration-300 z-50" id="sidebar">
+        <div class="text-center mb-6">
+            <h4 class="text-lg font-semibold">@User.Identity.Name</h4>
         </div>
-        <hr>
-        <a asp-action="Index" asp-controller="Home">
-            <i class="fas fa-home"></i> Home
+        <hr class="border-indigo-600 mb-4">
+        <a asp-action="Index" asp-controller="Home" class="flex items-center text-white py-2 px-3 rounded-md hover:bg-indigo-600 transition duration-200 mb-2">
+            <i class="fas fa-home mr-2"></i> Home
         </a>
-        <a asp-action="Dashboard" asp-controller="Admin">
-            <i class="fas fa-tachometer-alt"></i> Dashboard
+        <a asp-action="Dashboard" asp-controller="Admin" class="flex items-center text-white py-2 px-3 rounded-md hover:bg-indigo-600 transition duration-200 mb-2">
+            <i class="fas fa-tachometer-alt mr-2"></i> Dashboard
         </a>
-
-        <a asp-action="Index" asp-controller="Course">
-            <i class="fas fa-book"></i> Courses
+        <a asp-action="Index" asp-controller="Course" class="flex items-center text-white py-2 px-3 rounded-md hover:bg-indigo-600 transition duration-200 mb-2">
+            <i class="fas fa-book mr-2"></i> Courses
         </a>
-        <a asp-action="Add" asp-controller="Course">
-            <i class="fas fa-plus-circle"></i> Add Course
+        <a asp-action="Add" asp-controller="Course" class="flex items-center text-white py-2 px-3 rounded-md hover:bg-indigo-600 transition duration-200 mb-2">
+            <i class="fas fa-plus-circle mr-2"></i> Add Course
         </a>
-
-        <a asp-action="Index" asp-controller="Chat">
-            <i class="fas fa-exclamation-triangle"></i>
-            Problem
+        <a asp-action="Index" asp-controller="Chat" class="flex items-center text-white py-2 px-3 rounded-md hover:bg-indigo-600 transition duration-200 mb-2">
+            <i class="fas fa-exclamation-triangle mr-2"></i> Problem
         </a>
         @if (User.IsInRole("Admin"))
         {
-            <a asp-action="Index" asp-controller="RoleManagement">
-                <i class="fas fa-shield-alt"></i> Roles
+            <a asp-action="Index" asp-controller="RoleManagement" class="flex items-center text-white py-2 px-3 rounded-md hover:bg-indigo-600 transition duration-200 mb-2">
+                <i class="fas fa-shield-alt mr-2"></i> Roles
             </a>
-            <a asp-action="Index" asp-controller="Users">
-                <i class="fas fa-users"></i> Users
+            <a asp-action="Index" asp-controller="Users" class="flex items-center text-white py-2 px-3 rounded-md hover:bg-indigo-600 transition duration-200 mb-2">
+                <i class="fas fa-users mr-2"></i> Users
             </a>
         }
-
-
         @if (User.Identity?.IsAuthenticated ?? false)
         {
             <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/", new { area = "" })" method="post">
-                <button type="submit" class="logout-btn">
-                    <i class="fas fa-sign-out-alt"></i> Logout
+                <button type="submit" class="w-full bg-red-500 text-white font-semibold py-2 px-3 rounded-md hover:bg-red-600 transition duration-200">
+                    <i class="fas fa-sign-out-alt mr-2"></i> Logout
                 </button>
             </form>
         }
         else
         {
-            <p>You have successfully logged out of the application.</p>
+            <p class="text-white text-center">You have successfully logged out of the application.</p>
         }
     </div>
 
     <!-- Main Content -->
-    <div class="main-content">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
-            <div class="container-fluid">
-                <span class="navbar-brand">Admin Panel</span>
-                <div class="menu-toggle" id="menuToggle">
+    <div class="main-content ml-64 flex-1 p-5 bg-white transition-all duration-300">
+        <nav class="bg-gradient-to-r from-blue-500 to-indigo-600 text-white p-4 rounded-lg shadow-md mb-5">
+            <div class="container mx-auto flex justify-between items-center">
+                <span class="text-xl font-semibold">Courses App</span>
+                <div class="menu-toggle text-2xl cursor-pointer md:hidden" id="menuToggle">
                     ☰
                 </div>
             </div>
         </nav>
-
-        <div class="container">
+        <div class="container mx-auto animate-fade-in">
             @RenderBody()
         </div>
     </div>
 
     <script>
-        // JavaScript to toggle the sidebar
-        document.getElementById('menuToggle').addEventListener('click', function () {
+        // Toggle sidebar on mobile
+        document.getElementById('menuToggle').addEventListener('click', function() {
             const sidebar = document.getElementById('sidebar');
             sidebar.classList.toggle('active');
         });
-    </script>
-    <script>
+
+        // Disable right-click and developer tools
         document.addEventListener('contextmenu', function(e) {
             e.preventDefault();
         });
-
         document.addEventListener('keydown', function(e) {
-            if (e.key === "F12" || (e.ctrlKey && e.shiftKey && e.key === "I") || (e.ctrlKey && e.key === "u")) {
+            if (e.key === "F12" || (e.ctrlKey && e.shiftKey && e.key === "I") || (e.ctrlKey && e.key === "U")) {
                 e.preventDefault();
             }
         });
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
-    </body>
-    </html>
-}
+</body>
+</html>

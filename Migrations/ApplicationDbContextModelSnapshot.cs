@@ -294,6 +294,10 @@ namespace NetWork.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<string>("Content")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("CourseId")
                         .HasColumnType("int");
 
@@ -421,7 +425,7 @@ namespace NetWork.Migrations
             modelBuilder.Entity("NetWork.Models.LessonParagraph", b =>
                 {
                     b.HasOne("NetWork.Models.Lesson", "Lesson")
-                        .WithMany("Paragraphs")
+                        .WithMany()
                         .HasForeignKey("LessonId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -432,11 +436,6 @@ namespace NetWork.Migrations
             modelBuilder.Entity("NetWork.Models.Course", b =>
                 {
                     b.Navigation("Lessons");
-                });
-
-            modelBuilder.Entity("NetWork.Models.Lesson", b =>
-                {
-                    b.Navigation("Paragraphs");
                 });
 #pragma warning restore 612, 618
         }

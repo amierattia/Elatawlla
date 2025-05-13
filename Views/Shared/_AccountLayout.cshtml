@@ -1,86 +1,126 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - منصة الدورات</title>
-    <script type="importmap"></script>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="~/identity.styles.css" asp-append-version="true"/>
-    <link rel="stylesheet" href="~/css/styles.css" asp-append-version="true"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+    <style>
+        /* Custom Animation */
+        @@keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in {
+            animation: fadeIn 1s ease-out;
+        }
+        /* Pulse Animation for Buttons */
+        @@keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        .animate-pulse {
+            animation: pulse 0.5s ease-in-out;
+        }
+    </style>
 </head>
-<body>
-<header>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom box-shadow mb-3">
-        <div class="container-fluid">
-            <a class="navbar-brand animate__animated animate__fadeIn" asp-area="" asp-controller="Home" asp-action="Index">حارة العتاولة</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link text-dark animate__animated animate__fadeInUp" asp-area="" asp-controller="Home" asp-action="Index">الرئيسية</a>
+<body class="font-poppins bg-gray-100 min-h-screen flex flex-col">
+    <header>
+        <nav class="bg-gradient-to-r from-blue-500 to-indigo-600 text-white shadow-md py-4">
+            <div class="container mx-auto px-4 flex justify-between items-center">
+                <a class="text-xl font-semibold animate-fade-in" asp-area="" asp-controller="Home" asp-action="Index">منصة كورسات</a>
+                <button class="md:hidden text-2xl focus:outline-none" id="navbarToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="hidden md:flex space-x-4 space-x-reverse" id="navbarMenu">
+                    <ul class="flex space-x-4 space-x-reverse">
+                        <li>
+                            <a class="text-white hover:text-indigo-200 animate-fade-in" asp-area="" asp-controller="Home" asp-action="Index">الرئيسية</a>
+                        </li>
+                      
+                        <li>
+                            <a class="text-white hover:text-indigo-200 animate-fade-in" asp-area="" asp-controller="Chat" asp-action="Create">الإبلاغ عن مشكلة</a>
+                        </li>
+                        @if (User.IsInRole("Admin") || User.IsInRole("Instructor") || User.IsInRole("Suber_Instructor"))
+                        {
+                            <li>
+                                <a class="text-white hover:text-indigo-200 animate-fade-in" asp-area="" asp-controller="Admin" asp-action="Dashboard">لوحة التحكم</a>
+                            </li>
+                        }
+                    </ul>
+                    <div class="animate-fade-in">
+                        <partial name="_LoginPartial" />
+                    </div>
+                </div>
+            </div>
+            <!-- Mobile Menu -->
+            <div class="md:hidden hidden bg-indigo-700" id="mobileMenu">
+                <ul class="flex flex-col p-4 space-y-2">
+                    <li>
+                        <a class="text-white hover:text-indigo-200 block py-2" asp-area="" asp-controller="Home" asp-action="Index">الرئيسية</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-dark animate__animated animate__fadeInUp" asp-area="" asp-controller="Home" asp-action="About">نبذه عن العتاولة</a>
+                    <li>
+                        <a class="text-white hover:text-indigo-200 block py-2" asp-area="" asp-controller="Home" asp-action="About">نبذه عن العتاولة</a>
                     </li>
-
-
-
-                    <li class="nav-item">
-                        <a class="nav-link text-dark animate__animated animate__fadeInUp" asp-area="" asp-controller="Chat" asp-action="Create">الابلاغ عن مشكله </a>
+                    <li>
+                        <a class="text-white hover:text-indigo-200 block py-2" asp-area="" asp-controller="Chat" asp-action="Create">الإبلاغ عن مشكلة</a>
                     </li>
-                    
                     @if (User.IsInRole("Admin") || User.IsInRole("Instructor") || User.IsInRole("Suber_Instructor"))
                     {
-                        <li class="nav-item">
-                            <a class="nav-link text-dark animate__animated animate__fadeInUp" asp-area="" asp-controller="Admin" asp-action="Dashboard">لوحة التحكم</a>
+                        <li>
+                            <a class="text-white hover:text-indigo-200 block py-2" asp-area="" asp-controller="Admin" asp-action="Dashboard">لوحة التحكم</a>
                         </li>
                     }
-                  
+                    <li>
+                        <partial name="_LoginPartial" />
+                    </li>
                 </ul>
-                <partial name="_LoginPartial"/>
             </div>
+        </nav>
+    </header>
+
+    <main role="main" class="flex-1 pb-6">
+        <div class="container mx-auto px-4 animate-fade-in">
+            @RenderBody()
         </div>
-    </nav>
-</header>
+    </main>
 
-<main role="main" class="pb-3">
-    @RenderBody()
-</main>
+    <footer class="bg-indigo-800 text-white py-4">
+        <div class="container mx-auto px-4 text-center">
+            © 2025 العتاولة - <a href="@Url.Action("Privacy", "Home")" class="text-indigo-200 hover:text-white">الخصوصية</a>
+        </div>
+    </footer>
 
-<footer class="bg-dark text-white">
-    <div class="container py-3">
-        &copy; 2025 العتاولة - <a href="@Url.Action("Privacy", "Home")" class="text-white">الخصوصية</a>
-    </div>
-</footer>
-
-<script src="~/lib/jquery/dist/jquery.min.js"></script>
-<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-<script src="~/js/site.js" asp-append-version="true"></script>
-<script>
-    document.querySelectorAll('.btn-hover-effect').forEach((button) => {
-        button.addEventListener('click', () => {
-            button.classList.add('animate__animated', 'animate__pulse');
-            setTimeout(() => {
-                button.classList.remove('animate__pulse');
-            }, 1000);
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script>
+        // Toggle mobile menu
+        document.getElementById('navbarToggle').addEventListener('click', function () {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('hidden');
         });
-    });
 
-    document.addEventListener("DOMContentLoaded", function () {
-        const elements = document.querySelectorAll('.animate__animated');
-        elements.forEach((element, index) => {
-            element.style.animationDelay = `${index * 0.2}s`;
+        // Pulse animation for buttons
+        document.querySelectorAll('.btn-hover-effect').forEach((button) => {
+            button.addEventListener('click', () => {
+                button.classList.add('animate-pulse');
+                setTimeout(() => {
+                    button.classList.remove('animate-pulse');
+                }, 500);
+            });
         });
-    });
-</script>
 
-@await RenderSectionAsync("Scripts", required: false)
+        // Staggered animation for nav items
+        document.addEventListener("DOMContentLoaded", function () {
+            const elements = document.querySelectorAll('.animate-fade-in');
+            elements.forEach((element, index) => {
+                element.style.animationDelay = `${index * 0.2}s`;
+            });
+        });
+    </script>
+    @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

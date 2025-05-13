@@ -1,14 +1,13 @@
 @model NetWork.Models.Lesson
 @{
+    ViewData["Title"] = "تعديل الدرس";
     Layout = "_Layout";
 }
 
 <div class="container mx-auto px-4 py-8 animate-fade-in" dir="rtl">
-    <h1 class="text-3xl font-bold text-gray-800 mb-6">إضافة درس جديد</h1>
+    <h1 class="text-3xl font-bold text-gray-800 mb-6">تعديل الدرس</h1>
     <div class="bg-white rounded-lg shadow-md p-6">
-        <form asp-action="Add" method="post">
-            <input type="hidden" asp-for="CourseId" value="@ViewBag.CourseId" />
-            
+        <form asp-action="Edit" method="post">
             <div class="mb-4">
                 <label asp-for="Title" class="block text-gray-700 font-medium mb-2">العنوان</label>
                 <input asp-for="Title" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500" />
@@ -21,9 +20,18 @@
                 <span asp-validation-for="Content" class="text-red-500 text-sm"></span>
             </div>
 
-            <button type="submit" class="btn-hover-effect bg-indigo-600 text-white font-semibold py-2 px-6 rounded-md hover:bg-indigo-700 transition duration-200">
-                حفظ
-            </button>
+            <input type="hidden" asp-for="Id" />
+            <input type="hidden" asp-for="CourseId" />
+
+            <div class="flex space-x-4 space-x-reverse">
+                <button type="submit" class="btn-hover-effect bg-indigo-600 text-white font-semibold py-2 px-6 rounded-md hover:bg-indigo-700 transition duration-200">
+                    حفظ
+                </button>
+                <a asp-controller="Lesson" asp-action="Index" asp-route-courseId="@Model.CourseId"
+                   class="bg-gray-500 text-white font-semibold py-2 px-6 rounded-md hover:bg-gray-600 transition duration-200">
+                    إلغاء
+                </a>
+            </div>
         </form>
     </div>
 </div>
@@ -41,7 +49,5 @@
         });
     </script>
     <!-- Client-side validation -->
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
-    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }

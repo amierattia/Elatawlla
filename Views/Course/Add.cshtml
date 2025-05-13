@@ -1,35 +1,40 @@
 @model NetWork.Models.Course
-
 @{
-    ViewData["Title"] = "Edit Course";
+    ViewData["Title"] = "تعديل الدورة";
+    Layout = "_Layout";
 }
 
-<div class="container mt-5">
-    <h2 class="mb-4">Edit Course</h2>
-    <div class="row">
-        <div class="col-md-6">
-            <form asp-action="Add" method="post">
-                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                <input type="hidden" asp-for="Id" />
+<div class="container mx-auto px-4 py-8 animate-fade-in" dir="rtl">
+    <h1 class="text-3xl font-bold text-gray-800 mb-6">تعديل الدورة</h1>
+    <div class="bg-white rounded-lg shadow-md p-6">
+        <form asp-action="Edit" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-red-500 text-sm mb-4"></div>
+            <input type="hidden" asp-for="Id" />
 
-                <div class="form-group">
-                    <label asp-for="Title" class="control-label">Course Title</label>
-                    <input asp-for="Title" class="form-control" placeholder="Enter course title" />
-                    <span asp-validation-for="Title" class="text-danger"></span>
-                </div>
+            <div class="mb-4">
+                <label asp-for="Title" class="block text-gray-700 font-medium mb-2">عنوان الدورة</label>
+                <input asp-for="Title" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="أدخل عنوان الدورة" />
+                <span asp-validation-for="Title" class="text-red-500 text-sm"></span>
+            </div>
 
-                <div class="form-group">
-                    <label asp-for="Description" class="control-label">Course Description</label>
-                    <textarea asp-for="Description" class="form-control" rows="4" placeholder="Enter course description"></textarea>
-                    <span asp-validation-for="Description" class="text-danger"></span>
-                </div>
+            <div class="mb-4">
+                <label asp-for="Description" class="block text-gray-700 font-medium mb-2">وصف الدورة</label>
+                <textarea asp-for="Description" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500" rows="4" placeholder="أدخل وصف الدورة"></textarea>
+                <span asp-validation-for="Description" class="text-red-500 text-sm"></span>
+            </div>
 
-                <div class="form-group">
-                    <button type="submit" class="btn btn-success">Add Course</button>
-                    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
-                </div>
-            </form>
-        </div>
+            <div class="flex space-x-4 space-x-reverse">
+                <button type="submit" class="btn-hover-effect bg-indigo-600 text-white font-semibold py-2 px-6 rounded-md hover:bg-indigo-700 transition duration-200">
+                    حفظ
+                </button>
+                <a asp-action="Index" asp-controller="Course" class="bg-gray-500 text-white font-semibold py-2 px-6 rounded-md hover:bg-gray-600 transition duration-200">
+                    إلغاء
+                </a>
+            </div>
+        </form>
     </div>
 </div>
 
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

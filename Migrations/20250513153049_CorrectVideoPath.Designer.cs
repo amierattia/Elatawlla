@@ -12,8 +12,8 @@ using NetWork.Models;
 namespace NetWork.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250207085903_Audio")]
-    partial class Audio
+    [Migration("20250513153049_CorrectVideoPath")]
+    partial class CorrectVideoPath
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -297,7 +297,11 @@ namespace NetWork.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("CourseId")
+                    b.Property<string>("Content")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("CourseId")
                         .HasColumnType("int");
 
                     b.Property<string>("Title")
@@ -337,7 +341,8 @@ namespace NetWork.Migrations
 
                     b.Property<string>("Title")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
 
                     b.Property<string>("VedioPath")
                         .HasColumnType("nvarchar(max)");
@@ -411,19 +416,15 @@ namespace NetWork.Migrations
 
             modelBuilder.Entity("NetWork.Models.Lesson", b =>
                 {
-                    b.HasOne("NetWork.Models.Course", "Course")
+                    b.HasOne("NetWork.Models.Course", null)
                         .WithMany("Lessons")
-                        .HasForeignKey("CourseId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Course");
+                        .HasForeignKey("CourseId");
                 });
 
             modelBuilder.Entity("NetWork.Models.LessonParagraph", b =>
                 {
                     b.HasOne("NetWork.Models.Lesson", "Lesson")
-                        .WithMany("Paragraphs")
+                        .WithMany()
                         .HasForeignKey("LessonId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -434,11 +435,6 @@ namespace NetWork.Migrations
             modelBuilder.Entity("NetWork.Models.Course", b =>
                 {
                     b.Navigation("Lessons");
-                });
-
-            modelBuilder.Entity("NetWork.Models.Lesson", b =>
-                {
-                    b.Navigation("Paragraphs");
                 });
 #pragma warning restore 612, 618
         }

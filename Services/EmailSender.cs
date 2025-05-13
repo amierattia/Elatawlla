@@ -9,7 +9,7 @@ public class EmailSender : IEmailSender
     public async Task SendEmailAsync(string email, string subject, string htmlMessage)
     {
         var fromMail = "eng.amier@mail.ru";
-        var fromPassword = "***************";
+        var fromPassword = "4aYBU7KepUq2JgduUEJ1";
 
         var message = new MailMessage
         {

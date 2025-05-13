@@ -1,84 +1,87 @@
 @model List<NetWork.Models.Lesson>
-
 @{
-    ViewData["Title"] = "Lessons List";
-    @if (User.IsInRole("Admin") || User.IsInRole("Instructor") || User.IsInRole("Suber_Instructor"))
+    ViewData["Title"] = "دروس الدورة";
+    int courseId = (int)ViewBag.CourseId;
+    if (User.IsInRole("Admin") || User.IsInRole("Instructor") || User.IsInRole("Suber_Instructor"))
     {
         Layout = "_Layout";
     }
     else
     {
         Layout = "_AccountLayout";
-
     }
 }
 
-<div class="container mt-5">
-    <h2 class="mb-4">Lessons List</h2>
-    <div class="row">
-        <div class="col-md-12">
-            @if (User.IsInRole("Admin") || User.IsInRole("Instructor") || User.IsInRole("Suber_Instructor"))
-            {
-                <a asp-action="Add" class="btn btn-primary mb-3">Add New Lesson</a>
+<div class="container mx-auto px-4 py-8 animate-fade-in" dir="rtl">
+    <h1 class="text-3xl font-bold text-gray-800 mb-6">دروس الدورة: @courseId</h1>
+    <div class="bg-white rounded-lg shadow-md p-6">
+        @if (User.IsInRole("Admin") || User.IsInRole("Instructor") || User.IsInRole("Suber_Instructor"))
+        {
+            <div class="mb-4">
+                <a asp-controller="Lesson" asp-action="Add" asp-route-courseId="@courseId"
+                   class="btn-hover-effect inline-block bg-indigo-600 text-white font-semibold py-2 px-6 rounded-md hover:bg-indigo-700 transition duration-200">
+                    إضافة درس جديد
+                </a>
+            </div>
+        }
 
-            }
-            <div class="table-responsive">
-                <table class="table table-striped table-bordered">
-                    <thead class="thead-dark">
-                    <tr>
-                        <th class="text-center">ID</th>
-                        <th class="text-center">Title</th>
-                        <th class="text-center">Content</th>
-                        <th class="text-center">Course</th>
-                        @if (User.IsInRole("Admin") || User.IsInRole("Instructor") || User.IsInRole("Suber_Instructor"))
-                        {
-                            <th class="text-center">Actions</th>
-                        }
-                    </tr>
-
+        @if (Model.Any())
+        {
+            <div class="overflow-x-auto">
+                <table class="w-full border-collapse">
+                    <thead>
+                        <tr class="bg-gray-100">
+                            <th class="text-right px-4 py-2 text-gray-700 font-semibold">العنوان</th>
+                            <th class="text-right px-4 py-2 text-gray-700 font-semibold">الإجراءات</th>
+                        </tr>
                     </thead>
                     <tbody>
-                    @if (Model != null && Model.Any())
-                    {
                         @foreach (var lesson in Model)
                         {
-                            <tr>
-                                <td class="text-center">@lesson.Id</td>
-                                <td>@lesson.Title</td>
-                                <td>
-                                    <a asp-action="Paragraphs" asp-controller="Lesson" asp-route-lessonId="@lesson.Id" class="btn btn-info btn-sm">Content</a>
+                            <tr class="border-b border-gray-200 hover:bg-gray-50">
+                                <td class="px-4 py-2 text-gray-700">@lesson.Title</td>
+                                <td class="px-4 py-2">
+                                    <a asp-controller="Lesson" asp-action="Details" asp-route-id="@lesson.Id"
+                                       class="btn-hover-effect inline-block bg-blue-500 text-white font-semibold py-1 px-3 rounded-md hover:bg-blue-600 transition duration-200 mr-2">
+                                        عرض
+                                    </a>
+                                    @if (User.IsInRole("Admin") || User.IsInRole("Instructor") || User.IsInRole("Suber_Instructor"))
+                                    {
+                                        <a asp-controller="Lesson" asp-action="Edit" asp-route-id="@lesson.Id"
+                                           class="btn-hover-effect inline-block bg-yellow-500 text-white font-semibold py-1 px-3 rounded-md hover:bg-yellow-600 transition duration-200 mr-2">
+                                            تعديل
+                                        </a>
+                                        <a asp-controller="Lesson" asp-action="Delete" asp-route-id="@lesson.Id"
+                                           class="btn-hover-effect inline-block bg-red-600 text-white font-semibold py-1 px-3 rounded-md hover:bg-red-700 transition duration-200 delete-lesson-btn">
+                                            حذف
+                                        </a>
+                                    }
                                 </td>
-                                <td>@lesson.Course?.Title</td>
-                                      @if (User.IsInRole("Admin") || User.IsInRole("Instructor") || User.IsInRole("Suber_Instructor"))
-                                      {
-                                            <td class="text-center">
-
-                                                <a asp-action="Update" asp-route-lessonid="@lesson.Id" class="btn btn-warning btn-sm">
-                                                    <i class="fas fa-edit"></i>
-                                                </a>
-                                                <a asp-action="Delete" asp-route-lessonid="@lesson.Id" class="btn btn-danger btn-sm">
-                                                    <i class="fas fa-trash-alt"></i>
-                                                </a>   
-                                            </td>
-                                      }
-                            
-                                </tr>
-
+                            </tr>
                         }
-                    }
-                    else
-                    {
-                        <tr>
-                            <td colspan="5" class="text-center">No lessons available for this course.</td>
-                        </tr>
-                    }
                     </tbody>
                 </table>
             </div>
-        </div>
+        }
+        else
+        {
+            <div class="bg-yellow-100 text-yellow-800 border border-yellow-300 rounded-md p-4 text-center">
+                لا توجد دروس متاحة لهذه الدورة.
+            </div>
+        }
     </div>
 </div>
 
 @section Scripts {
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+        document.querySelectorAll('.delete-lesson-btn').forEach(button => {
+            button.addEventListener('click', function (event) {
+                if (!confirm('هل أنت متأكد من حذف هذا الدرس؟')) {
+                    event.preventDefault();
+                }
+            });
+        });
+    </script>
 }
